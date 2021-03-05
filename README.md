@@ -7,3 +7,6 @@ The title is self-explanatory.
 - `pip install pillow`
 - `pip install pyqt5`
 - `pip install pyqt5-tools`
+
+# File to Run
+- program.py
