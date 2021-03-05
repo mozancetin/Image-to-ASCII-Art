@@ -10,7 +10,6 @@ ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
 
 # resize image
 def resize_image(image, new_width=SIZE):
-    print(new_width)
     width, height = image.size
     ratio = height / width
     new_height = int(new_width * ratio * WIDTHRATIO)
