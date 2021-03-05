@@ -9,4 +9,4 @@ The title is self-explanatory.
 - `pip install pyqt5-tools`
 
 # File to Run
-- program.py
+- program.pyw
