@@ -10,6 +10,7 @@ ASCII_CHARS = ["@", "#", "S", "%", "?", "*", "+", ";", ":", ",", "."]
 
 # resize image
 def resize_image(image, new_width=SIZE):
+    print(new_width)
     width, height = image.size
     ratio = height / width
     new_height = int(new_width * ratio * WIDTHRATIO)
@@ -34,7 +35,7 @@ def setSize(size_multi : int):
     elif size_multi > 1000:
         size_multi = 1000
 
-    SIZE = size_multi
+    return(size_multi)
 
 def setWidth(ratio_multi : float):
     if ratio_multi < 0.2:
@@ -43,16 +44,23 @@ def setWidth(ratio_multi : float):
     elif ratio_multi > 1:
         ratio_multi = 1
 
-    WIDTHRATIO = ratio_multi
+    return(ratio_multi)
 
-def main(new_width=SIZE):
+def main(new_width = None, WIDTHRAT = None):
+    if WIDTHRAT != None:
+        WIDTHRATIO = WIDTHRAT
+    if new_width != None:
+        SIZE = new_width
+    else:
+        new_width = SIZE
+
     try:
         image = PIL.Image.open(path)
     except:
         print(path, "is nota valid pathname to an image.")
 
     # image to ascii
-    new_image_data = pixels_to_ascii(grayify(resize_image(image)))
+    new_image_data = pixels_to_ascii(grayify(resize_image(image, new_width)))
 
     # format
     pixel_count = len(new_image_data)
