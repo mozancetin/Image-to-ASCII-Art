@@ -58,15 +58,13 @@ class ASCIIArt(QWidget):
         self.startButton.setEnabled(True)
 
     def Start(self):
-        drawASCIIart.setSize(int(self.size.text()))
-        drawASCIIart.setWidth(float(self.ratio.text()))
         if self.name.text() != "":
             drawASCIIart.SAVE_NAME = self.name.text() + ".txt"
         else:
             self.filePath.setText("Name field cannot be left blank!")
             return False
         self.filePath.setText("Wait, please.")
-        drawASCIIart.main()
+        drawASCIIart.main(drawASCIIart.setSize(int(self.size.text())), drawASCIIart.setWidth(float(self.ratio.text())))
         self.filePath.setText("Done!")
 
 app = QApplication(sys.argv)
